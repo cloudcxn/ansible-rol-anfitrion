@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: "Byron Quezada"
+  company: "Cloud CxN"
+  description: "Rol de Ansible para configurar el nombre del anfitrión"
+
+  galaxy_tags:
+    - hostname
+    - raspbian
+
+  license: MIT
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: Debian
+    versions:
+    - bullseye
