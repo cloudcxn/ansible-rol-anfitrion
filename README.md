@@ -1,31 +1,38 @@
 Rol de Ansible: Anfiftrión
 ==========================
 
-Rol de Ansible para configurar el nombre del anfitrión.
+Rol de Ansible para configurar el nombre del anfitrión a partir del serial
+de la Raspberry Pi.
+
+Ej: `raspberry-pi-a123`
 
 Requerimientos
 --------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* Raspberry Pi con Raspbian basada en Debian Bullseye.
+* Usuario al formatear la tarjeta SD de arranque: administrador
+* SSH habilitado en la Raspberry Pi.
 
 Variables del Rol
 -----------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Variable | Descripción |
+| -------- | ----------- |
+| anfitrion_modelo | Modelo de la Raspberry Pi que servirá como el prefijo para el nombre del anfitrión. |
+
+Ver los [valores por defecto](defaults/main.yml).
 
 Dependencias
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Ninguna
 
 Libro de Ejemplo
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
+    - hosts: servidores
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: cloudcxn.anfitrion, anfitrion_modelo: "raspberry-pi-4" }
 
 Licencia
 --------
@@ -35,5 +42,5 @@ MIT.
 Información del Autor
 ---------------------
 
-El rol fue creado en el 2022 por Byron Quezada para
+El rol fue creado en noviembre del 2022 por Byron Quezada para
 [Cloud CxN](https://www.cloudcxn.com).

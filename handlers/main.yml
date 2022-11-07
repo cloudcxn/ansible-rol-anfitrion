@@ -1,2 +1,7 @@
 ---
-# handlers file for anfitrion
+- name: "Actualizar el archivo de anfitriones"
+  ansible.builtin.lineinfile:
+    line: "127.0.1.1 {{ anfitrion_modelo }}-{{ serial.stdout }}"
+    mode: 0644
+    path: '/etc/hosts'
+    search_string: '127.0.1.1'
