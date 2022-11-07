@@ -1,2 +1,10 @@
 ---
-# tasks file for anfitrion
+- name: "Obtener los 4 últimos dígitos del serial de la Raspberry Pi"
+  ansible.builtin.shell: 'cat /proc/cpuinfo | grep Serial | cut -c 23-'
+  register: serial
+  changed_when: "serial.rc != 0"
+
+- name: "Cambiar el nombre del anfitrión"
+  ansible.builtin.hostname:
+    name: "{{ anfitrion_modelo }}-{{ serial.stdout }}"
+  notify: "Actualizar el archivo de anfitriones"
